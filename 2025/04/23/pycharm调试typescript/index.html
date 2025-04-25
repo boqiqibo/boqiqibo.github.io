@@ -19,35 +19,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"boqiqibo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="前言进行渗透测试时，测试垂直越权是不可避免的步骤。因为鉴权的问题，几乎在每一个新系统都存在。 Burpsuite上这类插件很多，yakit上也存在此类插件。 测试垂直越权测试垂直越权，我们有一个通用的办法。那就是创建两个账号，一个拥有最高权限，一个仅拥有能登录的权限。然后用高权限的账号尽可能多的点击页面的按钮，在途中替换登录凭证为低权限的，看能否正常访问，响应是否一样。 如果一样，说明存在垂直越权">
+    <meta name="description" content="前言搜索引擎搜索调试typescript，都是vscode，但是没看懂。vscode界面简洁，但是适配起来用不习惯，还是喜欢用pycharm。 安装软件 安装Node.js https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn 判断是否安装成功 node -v    1npm install -g typescript   调试初始化 package.json 1npm init -y  typesc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Yakit轻松测试垂直越权">
-<meta property="og:url" content="https://boqiqibo.github.io/2025/04/23/%E5%88%A9%E7%94%A8Yakit%E8%BD%BB%E6%9D%BE%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/index.html">
+<meta property="og:title" content="pycharm调试typescript">
+<meta property="og:url" content="https://boqiqibo.github.io/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/index.html">
 <meta property="og:site_name" content="安全，从入门到入土">
-<meta property="og:description" content="前言进行渗透测试时，测试垂直越权是不可避免的步骤。因为鉴权的问题，几乎在每一个新系统都存在。 Burpsuite上这类插件很多，yakit上也存在此类插件。 测试垂直越权测试垂直越权，我们有一个通用的办法。那就是创建两个账号，一个拥有最高权限，一个仅拥有能登录的权限。然后用高权限的账号尽可能多的点击页面的按钮，在途中替换登录凭证为低权限的，看能否正常访问，响应是否一样。 如果一样，说明存在垂直越权">
+<meta property="og:description" content="前言搜索引擎搜索调试typescript，都是vscode，但是没看懂。vscode界面简洁，但是适配起来用不习惯，还是喜欢用pycharm。 安装软件 安装Node.js https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn 判断是否安装成功 node -v    1npm install -g typescript   调试初始化 package.json 1npm init -y  typesc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://boqiqibo.github.io/images/41eb136176e32bc008c43fdac70a1d24.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/6cb6aac9f364e5cad4f73ed9156be62c.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/bdfe843f4eaea31c96c13313b9348fec.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/240f33caa549f51544d0a1d8b8443590.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/3877a343b7e7a1ac24d9d7caa416b99e.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/7c35d81f74cec0c9abdaa2ddffe573ec.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/4f9a4a49831e88d4f29fcc87866462a7.png">
-<meta property="og:image" content="https://boqiqibo.github.io/images/f9cf6031e16c6f4e4cfdfbfe7df28488.png">
-<meta property="article:published_time" content="2025-04-23T13:16:36.000Z">
-<meta property="article:modified_time" content="2025-04-23T13:16:36.284Z">
+<meta property="og:image" content="https://boqiqibo.github.io/images/cbcda145242a654a320cc9d4d13a9aad.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/e75933f929aac91275cbefd7212c3a57.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/3d4f5021a414cc50979d752a91a32570.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/f387b90f39e28038232a8420ccf38508.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/5fc1d124db578e60b8a6a62988078f20.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/d0b1b00ffff387d653e677cff8fb1618.png">
+<meta property="article:published_time" content="2025-04-23T13:31:25.000Z">
+<meta property="article:modified_time" content="2025-04-23T13:31:25.072Z">
 <meta property="article:author" content="D4C">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://boqiqibo.github.io/images/41eb136176e32bc008c43fdac70a1d24.png">
+<meta name="twitter:image" content="https://boqiqibo.github.io/images/cbcda145242a654a320cc9d4d13a9aad.png">
 
 
-<link rel="canonical" href="https://boqiqibo.github.io/2025/04/23/%E5%88%A9%E7%94%A8Yakit%E8%BD%BB%E6%9D%BE%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/">
+<link rel="canonical" href="https://boqiqibo.github.io/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://boqiqibo.github.io/2025/04/23/%E5%88%A9%E7%94%A8Yakit%E8%BD%BB%E6%9D%BE%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/","path":"2025/04/23/利用Yakit轻松测试垂直越权/","title":"利用Yakit轻松测试垂直越权"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://boqiqibo.github.io/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/","path":"2025/04/23/pycharm调试typescript/","title":"pycharm调试typescript"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>利用Yakit轻松测试垂直越权 | 安全，从入门到入土</title>
+<title>pycharm调试typescript | 安全，从入门到入土</title>
   
 
 
@@ -137,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83"><span class="nav-number">1.1.</span> <span class="nav-text">测试垂直越权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">流程图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yakit%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83"><span class="nav-number">2.</span> <span class="nav-text">Yakit测试垂直越权</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95-1"><span class="nav-number">4.</span> <span class="nav-text">调试</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +181,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://boqiqibo.github.io/2025/04/23/%E5%88%A9%E7%94%A8Yakit%E8%BD%BB%E6%9D%BE%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/">
+    <link itemprop="mainEntityOfPage" href="https://boqiqibo.github.io/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,12 +194,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="利用Yakit轻松测试垂直越权 | 安全，从入门到入土">
+      <meta itemprop="name" content="pycharm调试typescript | 安全，从入门到入土">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          利用Yakit轻松测试垂直越权
+          pycharm调试typescript
         </h1>
 
         <div class="post-meta-container">
@@ -212,7 +210,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-04-23 21:16:36" itemprop="dateCreated datePublished" datetime="2025-04-23T21:16:36+08:00">2025-04-23</time>
+      <time title="创建时间：2025-04-23 21:31:25" itemprop="dateCreated datePublished" datetime="2025-04-23T21:31:25+08:00">2025-04-23</time>
     </span>
 
   
@@ -231,24 +229,30 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>进行渗透测试时，测试垂直越权是不可避免的步骤。因为鉴权的问题，几乎在每一个新系统都存在。</p>
-<p>Burpsuite上这类插件很多，yakit上也存在此类插件。</p>
-<h3 id="测试垂直越权"><a href="#测试垂直越权" class="headerlink" title="测试垂直越权"></a>测试垂直越权</h3><p>测试垂直越权，我们有一个通用的办法。那就是创建两个账号，一个拥有最高权限，一个仅拥有能登录的权限。然后用高权限的账号尽可能多的点击页面的按钮，在途中替换登录凭证为低权限的，看能否正常访问，响应是否一样。</p>
-<p>如果一样，说明存在垂直越权的问题。</p>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src="/images/41eb136176e32bc008c43fdac70a1d24.png" alt="41eb136176e32bc008c43fdac70a1d24.png"></p>
-<h2 id="Yakit测试垂直越权"><a href="#Yakit测试垂直越权" class="headerlink" title="Yakit测试垂直越权"></a>Yakit测试垂直越权</h2><p>打开yakit mitm，免配置启动chrome。</p>
-<p>输入高权限账号密码，进入系统后台。<br>打开一个数据包，判断登录凭证是什么。（这一步一定要认真检查，如果粗心大意漏掉了关键参数，结果可能错的离谱，好的结果是重来一遍，坏的结果是测试报告给客户，结果被客户投诉了，说漏洞不存在。）</p>
-<p>测试过程，也很简单，把请求头一个一个删掉，直到后端返回认证失败。<br>该系统判断鉴权只有一处，Authorization。<br><img src="/images/6cb6aac9f364e5cad4f73ed9156be62c.png" alt="6cb6aac9f364e5cad4f73ed9156be62c.png"><br>有的时候，请求中会携带cookie，但是这个cookie并不用来鉴权。为了避免后端哪个地方会调用（你也不知道，开发会有什么样的惊世智慧），把Cookie字段置空。</p>
-<p>换另一个浏览器，或者使用无痕浏览器，以低权限账号登录系统，获取登录凭证。<br><img src="/images/bdfe843f4eaea31c96c13313b9348fec.png" alt="bdfe843f4eaea31c96c13313b9348fec.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6Ijc3YWRiNzQ3LTgzM2UtNDk1Yi05ZTc3LWYxN2Y0ZWE0MDc4MSJ9.7IqZdpebtoZ3kvXi-cP61nzD-A0PYfj8mTnCxUnBLuq2V2Um2yyNYqk2vtUMNLdPsX3O4mZPA7tlixKI9VGasA</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>搜索引擎搜索调试typescript，都是vscode，但是没看懂。<br>vscode界面简洁，但是适配起来用不习惯，还是喜欢用pycharm。</p>
+<h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><ul>
+<li>安装Node.js <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">https://nodejs.org/zh-cn</a><ul>
+<li>判断是否安装成功 <code>node -v</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
 
-<p>编辑 yakit MITM 的交互插件<code>多认证综合越权测试</code></p>
-<p><img src="/images/240f33caa549f51544d0a1d8b8443590.png" alt="240f33caa549f51544d0a1d8b8443590.png"></p>
-<p>添加认证字段<br>可选 Cookie 和 Header<br><img src="/images/3877a343b7e7a1ac24d9d7caa416b99e.png" alt="3877a343b7e7a1ac24d9d7caa416b99e.png"></p>
-<p>接下来，在高权限账号的系统页面点击功能点</p>
-<p>交互插件<code>多认证综合越权测试</code>会发送两次数据包，一次是我们替换的认证字段，一次是将认证字段置空。<br><img src="/images/7c35d81f74cec0c9abdaa2ddffe573ec.png" alt="7c35d81f74cec0c9abdaa2ddffe573ec.png"></p>
-<p>我们可以看history中的相似度，判断是否存在越权，如果存在，yakit会将其标红。<br><img src="/images/4f9a4a49831e88d4f29fcc87866462a7.png" alt="4f9a4a49831e88d4f29fcc87866462a7.png"></p>
-<p>此时，js和vue结尾的请求可能不是我们想要的，我们可以点击过滤器添加后缀<br><img src="/images/f9cf6031e16c6f4e4cfdfbfe7df28488.png" alt="f9cf6031e16c6f4e4cfdfbfe7df28488.png"></p>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>初始化 package.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<p>typescript需要转换成js代码，再进行调试</p>
+<p>创建配置文件 tsconfig.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;include&quot;:[&quot;./src/**/*.ts&quot;],/*源代码存放的路径*/</span><br><span class="line">  &quot;compilerOptions&quot;:&#123;</span><br><span class="line">    &quot;strict&quot;: true,/*严格的语法检查*/</span><br><span class="line">    &quot;target&quot;: &quot;ES6&quot;,/*编译后的目标语言规范*/</span><br><span class="line">    &quot;module&quot;: &quot;commonjs&quot;,</span><br><span class="line">    &quot;removeComments&quot;: true,/*编译时是否删除代码中的注释*/</span><br><span class="line">    &quot;outDir&quot;: &quot;./dist&quot;,/*输出目录位置*/</span><br><span class="line">    &quot;sourceMap&quot;: true /*用于代码调试*/</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ts 路径<br><img src="/images/cbcda145242a654a320cc9d4d13a9aad.png" alt="cbcda145242a654a320cc9d4d13a9aad.png"></p>
+<p>在src下，创建 index.ts</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let myName: string = &quot;John&quot;;</span><br><span class="line">console.log(myName);</span><br><span class="line"></span><br><span class="line">let siteArr: string[] = [&quot;Google&quot;, &quot;Facebook&quot;];</span><br><span class="line">for (let i = 0; i &lt; siteArr.length; i++) &#123;</span><br><span class="line">    console.log(siteArr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在路径下，<code>tsc</code><br><img src="/images/e75933f929aac91275cbefd7212c3a57.png" alt="e75933f929aac91275cbefd7212c3a57.png"></p>
+<p>编辑配置文件<br><img src="/images/3d4f5021a414cc50979d752a91a32570.png" alt="3d4f5021a414cc50979d752a91a32570.png"><br>选择 nodejs<br><img src="/images/f387b90f39e28038232a8420ccf38508.png" alt="f387b90f39e28038232a8420ccf38508.png"><br>修改<br><img src="/images/5fc1d124db578e60b8a6a62988078f20.png" alt="5fc1d124db578e60b8a6a62988078f20.png"></p>
+<h2 id="调试-1"><a href="#调试-1" class="headerlink" title="调试"></a>调试</h2><p>下断点调试<br><img src="/images/d0b1b00ffff387d653e677cff8fb1618.png" alt="d0b1b00ffff387d653e677cff8fb1618.png"></p>
 
     </div>
 
@@ -281,13 +285,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/04/23/%E5%9C%A8%E4%B8%8D%E5%87%BA%E7%BD%91%E7%9A%84%E9%BA%92%E9%BA%9F%E7%B3%BB%E7%BB%9F%E4%B8%8A%E5%AE%89%E8%A3%85yakit/" rel="prev" title="在不出网的麒麟系统上安装yakit">
-                  <i class="fa fa-angle-left"></i> 在不出网的麒麟系统上安装yakit
+                <a href="/2025/04/23/%E5%88%A9%E7%94%A8Yakit%E8%BD%BB%E6%9D%BE%E6%B5%8B%E8%AF%95%E5%9E%82%E7%9B%B4%E8%B6%8A%E6%9D%83/" rel="prev" title="利用Yakit轻松测试垂直越权">
+                  <i class="fa fa-angle-left"></i> 利用Yakit轻松测试垂直越权
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/" rel="next" title="pycharm调试typescript">
-                  pycharm调试typescript <i class="fa fa-angle-right"></i>
+                <a href="/2025/04/24/%E5%9C%A8Yakit%20%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/" rel="next" title="在yakit“浏览器”中添加本地插件">
+                  在yakit“浏览器”中添加本地插件 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

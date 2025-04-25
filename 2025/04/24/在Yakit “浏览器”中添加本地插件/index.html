@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"boqiqibo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前言有师傅问我，如何在yakit中添加插件。我之前说没办法添加，因为yakit浏览器是免配置，而不是内置。并且yakit的参数中，–load-extension是不可配置、不可删除的。 正常来说是没办法的，但我们的本职工作是什么呢？况且，Yakit的限制就在本地，那不是想怎么玩弄就怎么玩弄。 下面，我给了两种解决办法。师傅们，可以根据需要选择。 修改数据库，添加插件效果演示 第一次失败的尝试打开y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在yakit“浏览器”中添加本地插件">
+<meta property="og:url" content="https://boqiqibo.github.io/2025/04/24/%E5%9C%A8Yakit%20%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="安全，从入门到入土">
+<meta property="og:description" content="前言有师傅问我，如何在yakit中添加插件。我之前说没办法添加，因为yakit浏览器是免配置，而不是内置。并且yakit的参数中，–load-extension是不可配置、不可删除的。 正常来说是没办法的，但我们的本职工作是什么呢？况且，Yakit的限制就在本地，那不是想怎么玩弄就怎么玩弄。 下面，我给了两种解决办法。师傅们，可以根据需要选择。 修改数据库，添加插件效果演示 第一次失败的尝试打开y">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://boqiqibo.github.io/images/e429b2074d8962d38eccfb1ff8ab15ec.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/ea5cc82a8c9cbfc4b4e62167397ea54a.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/fb5e167a6e35a7219aca2ff90547e4dc.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/b59fde5237c1cd1c1c5bf33593358cc1.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/72e93a8ba7b16cfa735c5d124db733c1.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/9bc8ca001b3d4a496ca6cfd8a27bfd8e.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/eb7c6ef7b4f41b811afb8b5848c72fe6.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/8dd70a2bd0b09d7bed02da9b605836a0.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/9970ee24d18dac3feb3eab0d4e240c5e.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/40f2a1fad06b296867db9e94f81810fb.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/9571c19b88e8b47076baf8136e065211.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/ed0c93bc92b43ca1d0734bc2b93bc68d.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/d64bdb31812b71fd38a7c78c2e624753.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/00fd8bf7011a2e5c2a7b3506c3054cb0.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/51774551a5cf9960e50218f3b4030078.png">
+<meta property="og:image" content="https://boqiqibo.github.io/images/ed0c93bc92b43ca1d0734bc2b93bc68d.png">
+<meta property="article:published_time" content="2025-04-24T15:30:57.000Z">
+<meta property="article:modified_time" content="2025-04-24T15:45:57.093Z">
+<meta property="article:author" content="D4C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://boqiqibo.github.io/images/e429b2074d8962d38eccfb1ff8ab15ec.png">
+
+
+<link rel="canonical" href="https://boqiqibo.github.io/2025/04/24/%E5%9C%A8Yakit%20%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://boqiqibo.github.io/2025/04/24/%E5%9C%A8Yakit%20%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/","path":"2025/04/24/在Yakit “浏览器”中添加本地插件/","title":"在yakit“浏览器”中添加本地插件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在yakit“浏览器”中添加本地插件 | 安全，从入门到入土</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">安全，从入门到入土</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">修改数据库，添加插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA"><span class="nav-number">2.1.</span> <span class="nav-text">效果演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%B0%9D%E8%AF%95"><span class="nav-number">2.2.</span> <span class="nav-text">第一次失败的尝试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95%EF%BC%88%E6%88%90%E5%8A%9F%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">第二次尝试（成功）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%94%E7%A4%BA"><span class="nav-number">2.4.</span> <span class="nav-text">演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">其他方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA-1"><span class="nav-number">3.1.</span> <span class="nav-text">效果演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">添加插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">D4C</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://boqiqibo.github.io/2025/04/24/%E5%9C%A8Yakit%20%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="D4C">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="安全，从入门到入土">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在yakit“浏览器”中添加本地插件 | 安全，从入门到入土">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在yakit“浏览器”中添加本地插件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-24 23:30:57 / 修改时间：23:45:57" itemprop="dateCreated datePublished" datetime="2025-04-24T23:30:57+08:00">2025-04-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有师傅问我，如何在yakit中添加插件。<br>我之前说没办法添加，因为yakit浏览器是免配置，而不是内置。<br>并且yakit的参数中，–load-extension是不可配置、不可删除的。<br><img src="/images/e429b2074d8962d38eccfb1ff8ab15ec.png" alt="e429b2074d8962d38eccfb1ff8ab15ec.png"></p>
+<p>正常来说是没办法的，但我们的本职工作是什么呢？<br>况且，Yakit的限制就在本地，那不是想怎么玩弄就怎么玩弄。</p>
+<p>下面，我给了两种解决办法。师傅们，可以根据需要选择。</p>
+<h2 id="修改数据库，添加插件"><a href="#修改数据库，添加插件" class="headerlink" title="修改数据库，添加插件"></a>修改数据库，添加插件</h2><h3 id="效果演示"><a href="#效果演示" class="headerlink" title="效果演示"></a>效果演示</h3><p><img src="/images/ea5cc82a8c9cbfc4b4e62167397ea54a.png" alt="ea5cc82a8c9cbfc4b4e62167397ea54a.png"></p>
+<h3 id="第一次失败的尝试"><a href="#第一次失败的尝试" class="headerlink" title="第一次失败的尝试"></a>第一次失败的尝试</h3><p>打开yakit目录下的sqlite数据库yakit-profile-plugin.db<br><img src="/images/fb5e167a6e35a7219aca2ff90547e4dc.png" alt="fb5e167a6e35a7219aca2ff90547e4dc.png"></p>
+<p>在数据表<code>general_storages</code>的key字段，寻找”chrome-launcher-params”<br><img src="/images/b59fde5237c1cd1c1c5bf33593358cc1.png" alt="b59fde5237c1cd1c1c5bf33593358cc1.png"><br>该字段的值就是我们配置chrome参数的地方。<br>我们找到</p>
+<ul>
+<li>–load-extension</li>
+<li>–disable-extensions-except</li>
+</ul>
+<p>在它们的variableValues中添加插件路径，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;D:\\\\yakit_pro1\\\\Yakit\\\\yakit-projects\\\\google-chrome-plugin,D:\\\\programs\\\\chrome-plugins\\\\my-fingerprint-chrome-v2.5.0\&quot;</span><br></pre></td></tr></table></figure>
+<p>保存，重新打开Yakit配置<br><img src="/images/72e93a8ba7b16cfa735c5d124db733c1.png" alt="72e93a8ba7b16cfa735c5d124db733c1.png"><br>诶？怎么没有变化？</p>
+<p>经过我多次的控制单一变量进行测试，不管怎么改都是上图的值。我怀疑是Yakit对这两个参数进行了限制。</p>
+<h3 id="第二次尝试（成功）"><a href="#第二次尝试（成功）" class="headerlink" title="第二次尝试（成功）"></a>第二次尝试（成功）</h3><p>直接修改这两个参数不行，我把思路转向<code>添加新参数</code>上，通过创建新参数，能不能覆盖老参数呢？<br>很遗憾，Yakit在客户端对我们的输入校验的比较严格。<br><img src="/images/9bc8ca001b3d4a496ca6cfd8a27bfd8e.png" alt="9bc8ca001b3d4a496ca6cfd8a27bfd8e.png"></p>
+<p>chrome添加命令参数的形式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.exe --disable-features=Translate</span><br></pre></td></tr></table></figure>
+<p>Yakit是调用系统中的浏览器的，最后的拼接方式也一定是类似上面这种。<br>在不影响使用的情况下，在参数名中的前方添加空格，能不能绕过呢？</p>
+<p>还是不行，依然提示存在相同的参数名。<br>Yakit在前端的校验确实严格，但是，它从数据库拿出数据后是否一样严格校验呢？<br>就像SQL注入中的二次注入一样，Yakit对于从数据库中拿到的参数名，并未进行严格校验，而是直接拼接到chrome中。</p>
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>先禁用<br><img src="/images/eb7c6ef7b4f41b811afb8b5848c72fe6.png" alt="eb7c6ef7b4f41b811afb8b5848c72fe6.png"></p>
+<p>添加两个新参数，参数名随意，方便你能在一大堆值里搜到就行。参数值为<br>chrome插件地址，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\programs\chrome-plugins\my-fingerprint-chrome-v2.5.0,D:\yakit_pro1\Yakit\yakit-projects\google-chrome-plugin</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不同插件地址间，用<code>,</code>分隔</li>
+</ul>
+<p>修改数据库，将两个参数名修改成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--load-extension</span><br><span class="line">--disable-extensions-except</span><br></pre></td></tr></table></figure>
+<p>记住，前面的空格要不要忘了。<br>复制到数据库中，保存。</p>
+<p>重新查看更多参数，看到添加成功<br><img src="/images/8dd70a2bd0b09d7bed02da9b605836a0.png" alt="8dd70a2bd0b09d7bed02da9b605836a0.png"></p>
+<p>此时<br><img src="/images/9970ee24d18dac3feb3eab0d4e240c5e.png" alt="9970ee24d18dac3feb3eab0d4e240c5e.png"></p>
+<p>之后，我没太细究，可以直接在这两个参数中添加其他插件路径了。<br>比如D:\programs\chrome-plugins\ddpocchrome<br><img src="/images/40f2a1fad06b296867db9e94f81810fb.png" alt="40f2a1fad06b296867db9e94f81810fb.png"></p>
+<p>之后在浏览器中就会显示<br><img src="/images/9571c19b88e8b47076baf8136e065211.png" alt="9571c19b88e8b47076baf8136e065211.png"></p>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>有人问，虹师傅，这个方法还是太吃操作了，有没有更简单的办法。<br>有的兄弟，有的。</p>
+<p>刷牙的时候，我灵光一闪，既然yakit浏览器是通过配置命令行达到的效果，那我自己把这些命令行复制出来，修改这加载插件的参数值不就行了。</p>
+<h3 id="效果演示-1"><a href="#效果演示-1" class="headerlink" title="效果演示"></a>效果演示</h3><p>和原版简直一模一样<br><img src="/images/ed0c93bc92b43ca1d0734bc2b93bc68d.png" alt="ed0c93bc92b43ca1d0734bc2b93bc68d.png"></p>
+<h3 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h3><p>Yakit 启动免配置<br><img src="/images/d64bdb31812b71fd38a7c78c2e624753.png" alt="d64bdb31812b71fd38a7c78c2e624753.png"></p>
+<p>访问 chrome:&#x2F;&#x2F;version&#x2F;<br>复制命令行<br><img src="/images/00fd8bf7011a2e5c2a7b3506c3054cb0.png" alt="00fd8bf7011a2e5c2a7b3506c3054cb0.png"></p>
+<p>修改其中的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--proxy-bypass-list=&lt;-loopback&gt;</span><br></pre></td></tr></table></figure>
+<p>为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--proxy-bypass-list=&quot;&lt;-loopback&gt;&quot;</span><br></pre></td></tr></table></figure>
+<p>复制到yakit-chrome.bat脚本中<br>可以看到启动后的浏览器和在yakit中启动的一样<br><img src="/images/51774551a5cf9960e50218f3b4030078.png" alt="51774551a5cf9960e50218f3b4030078.png"></p>
+<p>接下来，我们添加插件，将插件的路径填充在–load-extension和-disable-extensions-except中。<br>以my-fingerprint-chrome为例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--load-extension=D:\programs\chrome-plugins\my-fingerprint-chrome-v2.5.0,D:\yakit_pro1\Yakit\yakit-projects\google-chrome-plugin --disable-extensions-except=D:\programs\chrome-plugins\my-fingerprint-chrome-v2.5.0,D:\yakit_pro1\Yakit\yakit-projects\google-chrome-plugin</span><br></pre></td></tr></table></figure>
+
+<p>重新启动bat<br><img src="/images/ed0c93bc92b43ca1d0734bc2b93bc68d.png" alt="ed0c93bc92b43ca1d0734bc2b93bc68d.png"></p>
+<p>可以看到，浏览器中成功加载my-fingerprint-chrome插件。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一个系统，在设计的时候，往往是对外不信任，对内信任的。<br>即对用户的输入进行严格校验，对于从其他服务器、数据库获取的数据认为是可信的，并未进行过多校验。</p>
+<p>SQL注入中的二次注入就是基于这种想法导致的。本次直接修改Yakit的数据库，也是基于此类想法。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/23/pycharm%E8%B0%83%E8%AF%95typescript/" rel="prev" title="pycharm调试typescript">
+                  <i class="fa fa-angle-left"></i> pycharm调试typescript
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/04/24/%E2%80%9C%E6%B5%8F%E8%A7%88%E5%99%A8%E2%80%9D%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6/" rel="next" title="“浏览器”中添加本地插件">
+                  “浏览器”中添加本地插件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">D4C</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
